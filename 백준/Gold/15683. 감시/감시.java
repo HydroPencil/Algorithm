@@ -12,26 +12,27 @@ public class Main {
     private static int cctvCount;
 
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer tk = new StringTokenizer(br.readLine());
 
         cctvR = new int[MAX_CCTV_COUNT];
         cctvC = new int[MAX_CCTV_COUNT];
         cctvCount = 0;
-        N = sc.nextInt();
-        M = sc.nextInt();
+        N = Integer.parseInt(tk.nextToken());
+        M = Integer.parseInt(tk.nextToken());
         board = new int[N][M];
         min = Integer.MAX_VALUE;
 
         for (int i = 0; i < N; i++) {
+            tk = new StringTokenizer(br.readLine());
             for (int j = 0; j < M; j++) {
-                board[i][j] = sc.nextInt();
+                board[i][j] = Integer.parseInt(tk.nextToken());
                 if (board[i][j] != 0 && board[i][j] != 6) {
                     cctvR[cctvCount] = i;
                     cctvC[cctvCount++] = j;
                 }
             }
         }
-        sc.close();
 
         check(0);
 
