@@ -34,14 +34,6 @@ import java.io.*;
  */
 class Solution
 {
-    static class Point{
-        int r;
-        int c;
-        Point(int r, int c) {
-            this.r = r;
-            this.c = c;
-        }
-    }
     public static void main(String args[]) throws Exception
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -56,19 +48,13 @@ class Solution
 
             for(int i=0; i<farm_size; i++) {
                 String points = br.readLine();
-                for(int j=0; j<farm_size; j++) {
-                    farm[i][j] = points.charAt(j) - '0';
-                }
-            }
-
-            for(int i=0; i<farm_size; i++) {
                 if(i < half_size) {
                     for(int j=half_size-i; j<=half_size+i; j++){
-                        ans += farm[i][j];
+                        ans += points.charAt(j) - '0';
                     }
                 } else {
                     for(int j=i-half_size; j<farm_size-(i-half_size); j++) {
-                        ans += farm[i][j];
+                        ans += points.charAt(j) - '0';
                     }
                 }
             }
